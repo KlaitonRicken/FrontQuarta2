@@ -2,7 +2,7 @@ import { CategoriasCadastroComponent } from './categorias/categorias-cadastro/ca
 import { CategoriasPesquisaComponent } from './categorias/categorias-pesquisa/categorias-pesquisa.component';
 import { CategoriasModule } from './categorias/categorias.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
