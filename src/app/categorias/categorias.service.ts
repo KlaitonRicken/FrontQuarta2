@@ -5,14 +5,13 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CategoriasService {
 
   categoriasURL = 'http://localhost:8080/categorias';
   urlFiltro;
 
-  constructor(private http: HttpClient) { }
-
-
+  constructor(private http: HttpClient) {}
 
   pesquisar(filtro: any): Promise<any> {
     if(filtro.nome){
@@ -43,8 +42,5 @@ export class CategoriasService {
   buscarPorCodigo(codigo: number): Promise<Categoria> {
     return this.http.get<Categoria>(this.categoriasURL+'/'+codigo).toPromise();
   }
-
-
-
 
 }
