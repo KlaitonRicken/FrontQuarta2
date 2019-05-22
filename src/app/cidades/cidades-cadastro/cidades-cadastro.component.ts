@@ -4,7 +4,7 @@ import { CidadesService } from './../cidades.service';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
-
+//import { MessageService, SelectItem } from 'primeng/api';
 @Component({
   selector: 'app-cidades-cadastro',
   templateUrl: './cidades-cadastro.component.html',
@@ -26,7 +26,7 @@ export class CidadesCadastroComponent implements OnInit {
     private service: CidadesService,
     private messageService: MessageService,
     private rota: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit() {
     const codigoCidade = this.rota.snapshot.params['id'];
@@ -62,6 +62,5 @@ export class CidadesCadastroComponent implements OnInit {
   get editando(){
     return Boolean(this.cidade.id);
   }
-
 
 }

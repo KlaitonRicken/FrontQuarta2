@@ -1,8 +1,8 @@
-import { EstadosService } from './../estados.service';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { EstadosService } from './../estados.service';
+import { Estado } from './../module';
 import { Component, OnInit } from '@angular/core';
-import { Estado } from './../model';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -18,51 +18,49 @@ estado = new Estado();
     private service: EstadosService,
     private messageService: MessageService,
     private rota: ActivatedRoute
-    ) {}
+  ) { }
 
-    inserir(form: FormControl) {
-      this.service.adicionar(this.estado)
-      .then( ()=>{
-        this.messageService.add({severity:'success', summary:'Cadastro', detail:'Estado '+this.estado.nome+' cadastrado'});
-        form.reset();
-      });
-    }
+  inserir(form: FormControl) {
+    this.service.adicionar(this.estado)
+    .then( ()=>{
+      this.messageService.add({severity:'success', summary:'Cadastro', detail:'Estado '+this.estado.nome+' cadastrado'});
+      form.reset();
+    });
+  }
 
-  ngOnInit(){
+  ngOnInit() {
     const codigoEstado = this.rota.snapshot.params['id'];
     if(codigoEstado){
       this.carregarEstado(codigoEstado);
     }
   }
 
-    carregarEstado(id:number){
-      this.service.buscarPorCodigo(id)
-        .then((data) => {
-          this.estado = data;
-        }
-      );
-    }
-
-    alterar(form: FormControl) {
-      this.service.alterar(this.estado)
-      .then( ()=>{
-        this.messageService.add({severity:'success', summary:'Edição', detail:'Estado '+this.estado.nome+' alterado'});
-        form.reset();
-      });
-    }
-
-    salvar(form: FormControl) {
-      if(this.editando){
-        this.alterar(form);
-      }else{
-        this.inserir(form);
+  carregarEstado(id:number){
+    this.service.buscarPorCodigo(id)
+      .then((data) => {
+        this.estado = data;
       }
-    }
-
-    get editando(){
-      return Boolean(this.estado.id);
-    }
-
+    );
   }
 
+  alterar(form: FormControl) {
+    this.service.alterar(this.estado)
+    .then( ()=>{
+      this.messageService.add({severity:'success', summary:'Edição', detail:'Estado '+this.estado.nome+' alterado'});
+      form.reset();
+    });
+  }
 
+  salvar(form: FormControl) {
+    if(this.editando){
+      this.alterar(form);
+    }else{
+      this.inserir(form);
+    }
+  }
+
+  get editando(){
+    return Boolean(this.estado.id);
+  }
+
+}

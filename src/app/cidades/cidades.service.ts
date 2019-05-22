@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 export class CidadesService {
 
   cidadesURL = 'http://localhost:8080/cidades';
+
   urlFiltro;
 
   constructor(private http: HttpClient) { }

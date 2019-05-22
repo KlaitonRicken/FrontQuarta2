@@ -1,3 +1,4 @@
+import { MessageService } from 'primeng/api';
 import { EstadosService } from './estados.service';
 import { RouterModule } from '@angular/router';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -9,12 +10,11 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EstadosPesquisaComponent } from './estados-pesquisa/estados-pesquisa.component';
 import { EstadosCadastroComponent } from './estados-cadastro/estados-cadastro.component';
-import { MessageService } from 'primeng/api';
+import { EstadosPesquisaComponent } from './estados-pesquisa/estados-pesquisa.component';
 
 @NgModule({
-  declarations: [EstadosPesquisaComponent, EstadosCadastroComponent],
+  declarations: [EstadosCadastroComponent, EstadosPesquisaComponent],
   imports: [
     CommonModule,
     InputTextModule,
@@ -26,13 +26,11 @@ import { MessageService } from 'primeng/api';
     ConfirmDialogModule,
     RouterModule
   ],
-
   exports:[
     EstadosPesquisaComponent,
-    EstadosCadastroComponent,
+    EstadosCadastroComponent
   ],
-
-  providers:[
+  providers: [
     EstadosService,
     MessageService
   ]

@@ -1,21 +1,20 @@
-import { Estado } from './model';
-import { Injectable } from '@angular/core';
+import { Estado } from './module';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class EstadosService {
 
   estadosURL = 'http://localhost:8080/estados';
   urlFiltro;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   pesquisar(filtro: any): Promise<any> {
     if(filtro.nome){
-     this.urlFiltro = 'http://localhost:8080/estados/filtro?nome='+filtro.nome;
+      this.urlFiltro = 'http://localhost:8080/estados/filtro?nome='+filtro.nome;
     }else{
       this.urlFiltro = 'http://localhost:8080/estados';
     }

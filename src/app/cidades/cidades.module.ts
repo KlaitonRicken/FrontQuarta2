@@ -12,6 +12,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CidadesCadastroComponent } from './cidades-cadastro/cidades-cadastro.component';
 import { CidadesPesquiseComponent } from './cidades-pesquise/cidades-pesquise.component';
+//import {ListboxModule} from 'primeng/listbox';
 
 @NgModule({
   declarations: [CidadesCadastroComponent, CidadesPesquiseComponent],
@@ -25,6 +26,7 @@ import { CidadesPesquiseComponent } from './cidades-pesquise/cidades-pesquise.co
     FormsModule,
     ConfirmDialogModule,
     RouterModule
+    //ListboxModule
   ],
   exports: [
     CidadesCadastroComponent,

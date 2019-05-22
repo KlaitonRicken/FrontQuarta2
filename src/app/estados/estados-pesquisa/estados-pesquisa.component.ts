@@ -9,24 +9,24 @@ import { MessageService, ConfirmationService } from 'primeng/api';
 })
 export class EstadosPesquisaComponent implements OnInit {
 
-estados = [];
-nomeBusca = String;
+  estados = [];
+  nomeBusca: string;
 
   constructor(
     private service:EstadosService,
     private msg:MessageService,
     private conf: ConfirmationService
-  ) {}
+  ) { }
+
+  ngOnInit() {
+    this.pesquisar();
+  }
 
   pesquisar(){
     this.service.pesquisar({nome:this.nomeBusca})
     .then((dados)=>{
       this.estados=dados;
     });
-  }
-
-  ngOnInit(){
-    this.pesquisar();
   }
 
   confirmarExclusao(estado:any){
@@ -42,7 +42,8 @@ nomeBusca = String;
     this.service.excluir(estado.id)
     .then(()=>{
       this.pesquisar();
-      this.msg.add({severity:'success', summary:'Exclusão', detail:'Estado '+estado.nome+' excluído'});
+      this.msg.add({severity:'success', summary:'Exclusão', detail:'Categoria '+estado.nome+' excluída'});
     });
   }
+
 }
