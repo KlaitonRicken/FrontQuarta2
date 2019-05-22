@@ -23,7 +23,7 @@ estado = new Estado();
     inserir(form: FormControl) {
       this.service.adicionar(this.estado)
       .then( ()=>{
-        this.messageService.add({severity:'success', summary:'Cadastro', detail:'Estado '+this.estado.nome+' cadastrada'});
+        this.messageService.add({severity:'success', summary:'Cadastro', detail:'Estado '+this.estado.nome+' cadastrado'});
         form.reset();
       });
     }

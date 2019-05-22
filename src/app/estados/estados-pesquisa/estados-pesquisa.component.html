@@ -21,7 +21,7 @@
 
   <div class="ui-g">
       <div class="ui-g-12">
-          <p-table [value]="estados" [paginator]="true" [rows]="3" [responsive]="true">
+          <p-table [value]="estados" [paginator]="true" [rows]="5" [responsive]="true">
               <ng-template pTemplate="header" >
                   <tr>
                     <th class="col-id-header">Id</th>
@@ -50,6 +50,10 @@
 
       <div class="ui-g-12">
           <a class="rotas" routerLink="/categorias">Ir para a Lista de Categorias</a>
+      </div>
+
+      <div class="ui-g-12">
+          <a class="rotas" routerLink="/cidades">Ir para a Lista de Cidades</a>
       </div>
 
   </div>

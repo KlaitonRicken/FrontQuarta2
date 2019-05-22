@@ -11,6 +11,9 @@ import { AppComponent } from './app.component';
 import { ConfirmationService } from 'primeng/api';
 import {Routes, RouterModule} from '@angular/router';
 import { EstadosModule } from './estados/estados.module';
+import { CidadesPesquiseComponent } from './cidades/cidades-pesquise/cidades-pesquise.component';
+import { CidadesCadastroComponent } from './cidades/cidades-cadastro/cidades-cadastro.component';
+import { CidadesModule } from './cidades/cidades.module';
 
 const rotas: Routes = [
   {path: 'categorias', component: CategoriasPesquisaComponent},
@@ -18,7 +21,10 @@ const rotas: Routes = [
   {path: 'categorias/:id', component: CategoriasCadastroComponent},
   {path: 'estados', component: EstadosPesquisaComponent},
   {path: 'estados/novo', component: EstadosCadastroComponent},
-  {path: 'estados/:id', component: EstadosCadastroComponent}
+  {path: 'estados/:id', component: EstadosCadastroComponent},
+  {path: 'cidades', component: CidadesPesquiseComponent},
+  {path: 'cidades/novo',component: CidadesCadastroComponent},
+  {path: 'cidades/:id', component: CidadesCadastroComponent}
 ];
 @NgModule({
   declarations: [
@@ -30,7 +36,8 @@ const rotas: Routes = [
     CategoriasModule,
     HttpClientModule,
     RouterModule.forRoot(rotas),
-    EstadosModule
+    EstadosModule,
+    CidadesModule
   ],
   providers: [
     ConfirmationService

@@ -15,8 +15,8 @@ export class EstadosService {
 
   pesquisar(filtro: any): Promise<any> {
     if(filtro.nome){
-      //this.urlFiltro = 'http://localhost:8080/estados/filtro?nome='+filtro.nome;
-    //}else{
+     this.urlFiltro = 'http://localhost:8080/estados/filtro?nome='+filtro.nome;
+    }else{
       this.urlFiltro = 'http://localhost:8080/estados';
     }
 
