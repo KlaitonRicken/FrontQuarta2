@@ -1,3 +1,4 @@
+import { ButtonModule } from 'primeng/button';
 import { EstadosCadastroComponent } from './estados/estados-cadastro/estados-cadastro.component';
 import { EstadosPesquisaComponent } from './estados/estados-pesquisa/estados-pesquisa.component';
 import { CategoriasCadastroComponent } from './categorias/categorias-cadastro/categorias-cadastro.component';
@@ -14,8 +15,11 @@ import { EstadosModule } from './estados/estados.module';
 import { CidadesPesquiseComponent } from './cidades/cidades-pesquise/cidades-pesquise.component';
 import { CidadesCadastroComponent } from './cidades/cidades-cadastro/cidades-cadastro.component';
 import { CidadesModule } from './cidades/cidades.module';
+import {SidebarModule} from 'primeng/sidebar';
+import {DropdownModule} from 'primeng/dropdown';
 
 const rotas: Routes = [
+  {path: '', redirectTo:'categorias',pathMatch:'full'},
   {path: 'categorias', component: CategoriasPesquisaComponent},
   {path: 'categorias/novo', component: CategoriasCadastroComponent},
   {path: 'categorias/:id', component: CategoriasCadastroComponent},
@@ -37,7 +41,10 @@ const rotas: Routes = [
     HttpClientModule,
     RouterModule.forRoot(rotas),
     EstadosModule,
-    CidadesModule
+    CidadesModule,
+    SidebarModule,
+    ButtonModule,
+    DropdownModule
   ],
   providers: [
     ConfirmationService

@@ -10,9 +10,11 @@ import { MessageService } from 'primeng/api';
   templateUrl: './cidades-cadastro.component.html',
   styleUrls: ['./cidades-cadastro.component.css']
 })
+
 export class CidadesCadastroComponent implements OnInit {
 
   cidade = new Cidade();
+  estados = [];
 
   inserir(form: FormControl) {
     this.service.adicionar(this.cidade)
@@ -29,6 +31,7 @@ export class CidadesCadastroComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.pesquisarEstados();
     const codigoCidade = this.rota.snapshot.params['id'];
     if(codigoCidade){
       this.carregarCidade(codigoCidade);
@@ -61,6 +64,14 @@ export class CidadesCadastroComponent implements OnInit {
 
   get editando(){
     return Boolean(this.cidade.id);
+  }
+
+  pesquisarEstados(){
+    this.service.listarUf().
+    then((dados)=>{
+      this.estados=dados.
+      map(e =>({label: e.nome, value: e.id}));
+    });
   }
 
 }

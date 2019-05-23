@@ -1,3 +1,4 @@
+import { EstadosService } from './../estados/estados.service';
 import { MessageService } from 'primeng/api';
 import { CidadesService } from './cidades.service';
 import { RouterModule } from '@angular/router';
@@ -12,6 +13,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CidadesCadastroComponent } from './cidades-cadastro/cidades-cadastro.component';
 import { CidadesPesquiseComponent } from './cidades-pesquise/cidades-pesquise.component';
+import { DropdownModule } from 'primeng/dropdown';
 //import {ListboxModule} from 'primeng/listbox';
 
 @NgModule({
@@ -25,8 +27,10 @@ import { CidadesPesquiseComponent } from './cidades-pesquise/cidades-pesquise.co
     ToastModule,
     FormsModule,
     ConfirmDialogModule,
-    RouterModule
-    //ListboxModule
+    RouterModule,
+    DropdownModule,
+    ButtonModule
+
   ],
   exports: [
     CidadesCadastroComponent,
@@ -34,6 +38,7 @@ import { CidadesPesquiseComponent } from './cidades-pesquise/cidades-pesquise.co
   ],
   providers: [
     CidadesService,
+    EstadosService,
     MessageService
   ]
 })

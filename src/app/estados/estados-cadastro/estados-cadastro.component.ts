@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { EstadosService } from './../estados.service';
 import { Estado } from './../module';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +17,9 @@ estado = new Estado();
   constructor(
     private service: EstadosService,
     private messageService: MessageService,
-    private rota: ActivatedRoute
+    private rota: ActivatedRoute,
+    //private rotaP: Router
+
   ) { }
 
   inserir(form: FormControl) {
@@ -57,6 +59,7 @@ estado = new Estado();
     }else{
       this.inserir(form);
     }
+    //this.rotaP.navigate(['/categorias']);
   }
 
   get editando(){

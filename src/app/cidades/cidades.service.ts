@@ -43,4 +43,8 @@ export class CidadesService {
     return this.http.get<Cidade>(this.cidadesURL+'/'+codigo).toPromise();
   }
 
+  listarUf(): Promise<any> {
+    return this.http.get<any>('http://localhost:8080/estados').toPromise();
+  }
+
 }
