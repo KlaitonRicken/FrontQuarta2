@@ -1,3 +1,5 @@
+import { ProdutosModule } from './produtos/produtos.module';
+import { ProdutosCadastroComponent } from './produtos/produtos-cadastro/produtos-cadastro.component';
 import { ButtonModule } from 'primeng/button';
 import { EstadosCadastroComponent } from './estados/estados-cadastro/estados-cadastro.component';
 import { EstadosPesquisaComponent } from './estados/estados-pesquisa/estados-pesquisa.component';
@@ -28,7 +30,8 @@ const rotas: Routes = [
   {path: 'estados/:id', component: EstadosCadastroComponent},
   {path: 'cidades', component: CidadesPesquiseComponent},
   {path: 'cidades/novo',component: CidadesCadastroComponent},
-  {path: 'cidades/:id', component: CidadesCadastroComponent}
+  {path: 'cidades/:id', component: CidadesCadastroComponent},
+  {path: 'produtos', component: ProdutosCadastroComponent}
 ];
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ const rotas: Routes = [
     CidadesModule,
     SidebarModule,
     ButtonModule,
-    DropdownModule
+    DropdownModule,
+    ProdutosModule
   ],
   providers: [
     ConfirmationService
